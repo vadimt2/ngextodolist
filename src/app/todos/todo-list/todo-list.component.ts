@@ -2,34 +2,10 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { Todo } from '../interfaces';
-import { TodoService } from '../services/todo.service';
-import { Add, LoadTodos, Remove, RemoveSuccess, Toggle } from '../store/actions';
+import { Add, LoadTodos, Remove, Toggle } from '../store/actions';
 import { AppState, selectTodos } from '../store/selectors';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  query,
-  stagger
-} from '@angular/animations';
 import { map } from 'rxjs/operators';
-
-export const fadeAnimation = trigger('fadeAnimation', [
-  transition(':enter', [
-    style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]
-  ),
-]);
-
-const listAnimation = trigger('listAnimation', [
-  transition('* <=> *', [
-    query(':enter',
-      [style({ opacity: 0 }), stagger('60ms', animate('600ms ease-out', style({ opacity: 1 })))],
-      { optional: true }
-    ),
-  ])
-]);
+import { fadeAnimation, listAnimation } from '../animations/todo-list.animation';
 
 @Component({
   selector: 'app-todo-list',
@@ -48,7 +24,7 @@ export class TodoListComponent implements OnInit {
   todosOptions: Array<string> = ["All","Done","Undone"]
 
 
-  constructor(private store: Store<AppState>, cdRef: ChangeDetectorRef, private todoService: TodoService) {
+  constructor(private store: Store<AppState>, cdRef: ChangeDetectorRef) {
     // console.log((cdRef as any)._view);
   }
 

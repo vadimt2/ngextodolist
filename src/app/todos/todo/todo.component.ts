@@ -15,18 +15,6 @@ import {FormControl} from '@angular/forms';
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
-  // animations: [
-  //   trigger('flyInOut', [
-  //     state('remove', style({ transform: 'translateX(0)' })),
-  //     transition('void => *', [
-  //       style({ transform: 'translateX(-100%)' }),
-  //       animate(1)
-  //     ]),
-  //     transition('* => void', [
-  //       animate(300, style({ transform: 'translateX(-100%)' }))
-  //     ])
-  //   ])
-  // ]
 })
 export class TodoComponent {
   @Output() onRemoveTodo = new EventEmitter<number>();

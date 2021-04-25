@@ -24,10 +24,6 @@ export const _todoReducer = createReducer(
     ...state,
     todos: state.todos.filter(todo => todo.id !== id)
   })),
-  // on(ToggleSuccess, (state, { todo }) => ({
-  //   ...state,
-  //   todos: state.todos.map(todoInList => (todoInList.id === todo.id ? { ...todoInList, completed: todo.completed} : todoInList))
-  // }))
   on(Toggle, (state, { todo }) => ({
     ...state,
     todos: state.todos.map(todoInList => (todoInList.id === todo.id ? { ...todoInList, completed: !todoInList.completed } : todoInList))
