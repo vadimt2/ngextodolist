@@ -1,0 +1,12 @@
+<!-- <span [ngClass]="{'not-todo': todo.completed}">{{todo.title}}</span>
+<div>
+  <button (click)="removeTodo()">Delete</button>
+  <button (click)="toggleTodo()">Toggle</button>
+</div> -->
+
+  <mat-list-item>
+    <mat-checkbox [matTooltip]="todo.title" [ngClass]="{'not-todo tooltip': todo.completed}" [checked]="todo.completed" (change)="toggleTodo()" >
+      {{ todo.title }}
+    </mat-checkbox>
+  </mat-list-item>
+  <button mat-button type="submit" (click)="removeTodo()" color="primary">Delete</button>  

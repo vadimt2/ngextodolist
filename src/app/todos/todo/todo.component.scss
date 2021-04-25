@@ -1,0 +1,24 @@
+:host {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(0, 163, 192, 0.507);
+    margin: 4px;
+    border-radius: 5px;
+}
+
+.not-todo {
+    text-decoration: line-through;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    ::ng-deep .mat-checkbox-label {
+        display: inline-block;
+        width: 150px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+}

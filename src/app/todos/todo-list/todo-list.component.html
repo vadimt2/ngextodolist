@@ -1,0 +1,52 @@
+<!-- <h1>TODO List</h1>
+<form>
+  <app-add-todo (onAddTodo)="addTodo($event)"></app-add-todo>
+</form>
+<div>
+  <select [(ngModel)]="filteredTodo" (ngModelChange)="filterTodosList($event)">
+    <option *ngFor="let option of todosOptions">{{option}}</option>
+  </select>
+</div> -->
+
+  <!-- <app-todo class="hover-todo" *ngFor="let todo of filteredTodos | ngrxPush"  [@flyInOut]="''" [todo]="todo" (onRemoveTodo)="removeTodo($event)"
+  (onToggleTodo)="toggleTodo($event)">
+</app-todo> -->
+
+
+<div fxLayout="column" fxLayoutAlign="start stretch" class="cards">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex="90%" fxFlex.md="66.6667%" fxFlex.gt-md="50%">
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title><h2>Add To Do</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-add-todo (onAddTodo)="addTodo($event)"></app-add-todo>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title><h2>Filter</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <select @fadeAnimation [(ngModel)]="filteredTodo" (ngModelChange)="filterTodosList($event)">
+            <option *ngFor="let option of todosOptions">{{option}}</option>
+          </select>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title><h2>Todos</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content [@listAnimation]="(filteredTodos | ngrxPush)?.length">
+          <app-todo class="hover-todo" *ngFor="let todo of filteredTodos | ngrxPush; let todos" [todo]="todo" (onRemoveTodo)="removeTodo($event)"
+          (onToggleTodo)="toggleTodo(todo)">
+        </app-todo>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

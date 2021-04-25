@@ -1,0 +1,10 @@
+<!-- <input type="text" placeholder="Add new TODO task" [(ngModel)]="newTodo" [ngModelOptions]="{standalone: true}" />
+<button type="submit" (click)="addTodo()">Add</button> -->
+<mat-form-field appearance="fill">
+  <mat-label>Add new TODO task</mat-label>
+  <input matInput placeholder="new todo" [formControl]="newTodo" required>
+  <mat-error *ngIf="newTodo.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+<div fxLayout="row" fxLayoutAlign="end">
+  <button mat-button type="submit" (click)="addTodo()" color="primary">Add To Do</button>
+</div>
